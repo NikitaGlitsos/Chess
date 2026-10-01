@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#05070d">
+<title>Игра с тренером-ИИ — Гамбит</title>
+
+<link rel="stylesheet" href="/css/base.css">
+<link rel="stylesheet" href="/css/play.css">
+<link rel="stylesheet" href="https://unpkg.com/@chrisoakman/chessboardjs@1.0.0/dist/chessboard-1.0.0.min.css">
+</head>
+<body>
+
+<div class="bg-fx" aria-hidden="true"></div>
+
+<!-- ШАПКА -->
+<header id="header">
+  <div class="container header-inner">
+    <a href="/" class="logo">
+      <div class="logo-icon">♞</div>
+      Гамбит
+    </a>
+
+    <nav>
+      <ul>
+        <li><a href="/#register">Регистрация</a></li>
+        <li><a href="/#coaches">Тренеры</a></li>
+        <li><a href="/#join">Записаться</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-actions">
+      <a href="/" class="btn btn-ghost">← На главную</a>
+    </div>
+  </div>
+</header>
+
+<!-- ИГРА -->
+<section class="play-section">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-label">Практика</div>
+      <h2>Игра с <span class="grad-text">тренером-ИИ</span></h2>
+      <p>Сыграй партию с компьютером. Выбери уровень — от новичка до мастера.</p>
+    </div>
+
+    <div class="play-layout">
+      <div class="play-controls">
+        <label for="level">Уровень сложности</label>
+        <select id="level">
+          <option value="800">🟢 Новичок (800)</option>
+          <option value="1400" selected>🟡 Средний (1400)</option>
+          <option value="2000">🟠 Продвинутый (2000)</option>
+          <option value="2500">🔴 Мастер (2500)</option>
+        </select>
+
+        <div id="status" class="play-status">Ваш ход</div>
+
+        <button id="resetBtn" class="btn play-reset">Начать заново</button>
+      </div>
+
+      <div class="play-board-wrap">
+        <div id="board"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- СКРИПТЫ -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.10.3/chess.min.js"></script>
+<script src="https://unpkg.com/@chrisoakman/chessboardjs@1.0.0/dist/chessboard-1.0.0.min.js"></script>
+<script src="/js/play.js"></script>
+
+</body>
+</html>

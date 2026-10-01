@@ -1,0 +1,141 @@
+/* ===== Страница игры с ИИ ===== */
+.play-section {
+  padding: 130px 0 80px;
+  min-height: 100vh;
+}
+
+.play-layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 40px;
+  align-items: start;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Левая колонка — управление */
+.play-controls {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 28px 24px;
+  position: sticky;
+  top: 100px;
+}
+
+.play-controls label {
+  display: block;
+  font-size: 13px;
+  color: var(--text-dim);
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.play-controls select {
+  width: 100%;
+  padding: 12px 14px;
+  background: rgba(255,255,255,0.04);
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+  color: #fff;
+  font-size: 15px;
+  font-family: inherit;
+  outline: none;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+  margin-bottom: 20px;
+}
+
+.play-controls select:focus {
+  border-color: var(--accent-2);
+  box-shadow: 0 0 0 4px rgba(43,95,199,0.15);
+}
+
+.play-controls select option {
+  background: #0a0f1c;
+  color: #fff;
+}
+
+.play-status {
+  padding: 14px 16px;
+  background: rgba(43,95,199,0.12);
+  border: 1px solid rgba(74,127,212,0.35);
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--accent-3);
+  text-align: center;
+  margin-bottom: 16px;
+  transition: all 0.3s ease;
+}
+
+.play-reset {
+  width: 100%;
+  padding: 12px 20px;
+  font-size: 14px;
+}
+
+/* Правая колонка — доска */
+.play-board-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+}
+
+#board {
+  width: 100%;
+  max-width: 480px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5), 0 0 0 4px rgba(43,95,199,0.2);
+}
+
+/* Перекрашиваем доску под тёмную тему chessboard.js */
+.play-board-wrap .board-b72b1 {
+  border: none !important;
+}
+
+.play-board-wrap .white-1e1d7 {
+  background-color: #3d4d70 !important;
+  color: #eef1f7 !important;
+}
+
+.play-board-wrap .black-3c85d {
+  background-color: #2a3550 !important;
+  color: #eef1f7 !important;
+}
+
+/* Хайлайт хода */
+.play-board-wrap .highlight1-32417,
+.play-board-wrap .highlight2-9c5d2 {
+  box-shadow: inset 0 0 3px 3px rgba(107,156,232,0.7) !important;
+}
+
+/* Адаптив */
+@media (max-width: 900px) {
+  .play-layout {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    max-width: 520px;
+  }
+
+  .play-controls {
+    position: static;
+    order: 2;
+  }
+
+  .play-board-wrap {
+    order: 1;
+  }
+}
+
+@media (max-width: 520px) {
+  .play-section {
+    padding: 100px 0 60px;
+  }
+
+  #board {
+    max-width: 100%;
+  }
+}

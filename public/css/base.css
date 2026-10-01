@@ -1,0 +1,136 @@
+/* ===== СБРОС ===== */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* ===== ПЕРЕМЕННЫЕ ===== */
+:root {
+  --bg: #05070d;
+  --bg-2: #0a0f1c;
+  --bg-3: #0d1524;
+  --card: rgba(255,255,255,0.03);
+  --border: rgba(255,255,255,0.08);
+
+  --text: #eef1f7;
+  --text-dim: #7e8aa3;
+
+  --accent: #2b5fc7;
+  --accent-2: #4a7fd4;
+  --accent-3: #8fb4e8;
+  --white: #ffffff;
+
+  --p1: var(--accent);
+  --p2: var(--accent-2);
+  --p3: var(--accent-3);
+  --gold: var(--accent-3);
+}
+
+/* ===== ФИКС СЪЕЗЖАНИЯ ===== */
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
+  min-height: 100vh;
+}
+
+img, svg, video, canvas {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ===== ФОН ===== */
+.bg-fx {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(43,95,199,0.22) 0%, transparent 50%),
+    radial-gradient(circle at 85% 15%, rgba(74,127,212,0.16) 0%, transparent 50%),
+    radial-gradient(circle at 70% 85%, rgba(143,180,232,0.10) 0%, transparent 50%),
+    radial-gradient(circle at 20% 90%, rgba(43,95,199,0.08) 0%, transparent 50%),
+    var(--bg);
+  background-size: 200% 200%, 200% 200%, 200% 200%, 200% 200%, 100% 100%;
+  background-position: 0% 0%, 100% 0%, 100% 100%, 0% 100%, 0 0;
+  pointer-events: none;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+  background-size: 60px 60px;
+  z-index: -1;
+  pointer-events: none;
+  -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
+  mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  width: 100%;
+}
+
+h1, h2, h3 { font-weight: 700; line-height: 1.2; letter-spacing: -0.5px; }
+a { text-decoration: none; color: inherit; }
+button { font-family: inherit; }
+
+/* ===== ГРАДИЕНТНЫЙ ТЕКСТ ===== */
+.grad-text {
+  background: linear-gradient(120deg, var(--accent), var(--accent-2), var(--accent-3), var(--accent));
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: gradShift 8s ease 2;
+}
+
+@keyframes gradShift {
+  0%, 100% { background-position: 0% 50%; }
+  50%      { background-position: 100% 50%; }
+}
+
+/* ===== СЕКЦИИ ===== */
+section {
+  padding: 100px 0;
+  position: relative;
+  overflow-x: clip;
+  max-width: 100vw;
+}
+
+.section-head {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto 70px;
+}
+
+.section-label {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--accent-3);
+  margin-bottom: 16px;
+}
+
+.section-head h2 {
+  font-size: clamp(30px, 4.2vw, 46px);
+  color: #fff;
+  margin-bottom: 18px;
+}
+
+.section-head p { color: var(--text-dim); font-size: 17px; }
